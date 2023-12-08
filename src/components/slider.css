@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  min-height: 100vh;
+  background: #fefefe;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 35px;
+}
+.slide-header {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+}
+.slide-header h3 {
+  color: #343F4F;
+  font-size: large;
+  line-height: 1.5;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-align: left;
+  font-weight: bold;
+}
+.slide-header a {
+  color: #343F4F;
+  font-size: medium;
+  line-height: 1.5;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-align: left;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.wrapper{
+  /* display: flex;
+  flex-direction: column; */
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+}
+.wrapper i{
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  color: #343F4F;
+  cursor: pointer;
+  font-size: 1rem;
+  position: absolute;
+  text-align: center;
+  line-height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+.wrapper i:active{
+  transform: translateY(-50%) scale(0.9);
+}
+.wrapper i:hover{
+  background: #f2f2f2;
+}
+.wrapper i:first-child{
+  left: -22px;
+  display: none;
+}
+.wrapper i:last-child{
+  right: -22px;
+}
+
+.wrapper .carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3)-10px);
+  gap: 10px;
+  cursor: pointer;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: 0;
+}
+.carousel::-webkit-scrollbar{
+  display: none;
+}
+.carousel .card {
+  scroll-snap-align: start;
+  height: 215px;
+  user-select: none;
+  min-width: 170px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgb(241, 238, 238);
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.1s linear;
+}
+
+.card h3 {
+  color: #343F4F;
+  font-size: medium;
+  /* line-height: 1.5; */
+  font-style: normal;
+  letter-spacing: 1px;
+  text-align: left;
+  font-weight: bold;
+  margin: 10px 0 0;
+}
+
+.card p {
+  color: #343F4F;
+  font-size: small;
+  /* line-height: 1.5; */
+  font-style: normal;
+  letter-spacing: 1px;
+  text-align: left;
+  font-weight: bold;
+  /* margin: 10px 0; */
+}
+.carousel .card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.carousel.dragging{
+  cursor: grab;
+  scroll-snap-type:none;
+  scroll-behavior: auto;
+}
+.carousel.dragging .card{
+  pointer-events: none;
+  /* color: white; */
+}
+
+.carousel .card:first-child{
+  margin-left: 0px;
+}
+
+
+@media screen and (max-width: 900px) {
+  .carousel{
+    grid-auto-columns: calc((100%/2) );
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel{
+    grid-auto-columns:calc(100%/2);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .carousel{
+    grid-auto-columns: 100%;
+  }
+  .card {
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .carousel {
+    grid-auto-columns: calc(100% / 3);
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .carousel {
+    grid-auto-columns: calc((100% / 5));
+  }
+}
+
